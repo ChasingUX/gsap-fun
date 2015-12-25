@@ -2,7 +2,7 @@ module RouteHelpers
   ROUTES = {
     home:                                               '/',
     demo_a:                                             '/demos/',
-    cars:                                               '/demos/cars/'
+    demo_b:                                             '/demos/progress/'
   }
 
   URL_REGEX = /https?:/
