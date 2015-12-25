@@ -20,8 +20,8 @@
 # page "/path/to/file.html", :layout => :otherlayout
 #
 # A path which all have the same layout
-# with_layout :admin do
-#   page "/admin/*"
+# with_layout :layout do
+#   page "/demos/*"
 # end
 
 # Proxy pages (https://middlemanapp.com/advanced/dynamic_pages/)
@@ -40,12 +40,18 @@
 #   activate :livereload
 # end
 
+activate :livereload
+activate :directory_indexes
+
 # Methods defined in the helpers block are available in templates
 # helpers do
 #   def some_helper
 #     "Helping"
 #   end
 # end
+
+set :partials_dir, 'templates/partials'
+
 
 set :css_dir, 'stylesheets'
 

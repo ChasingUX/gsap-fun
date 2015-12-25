@@ -1,0 +1,15 @@
+<nav>
+  <ul>
+    <li class="home">
+      <% link_to home_path do %>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      <% end %>
+    </li>
+    <li><%= active_link_to "Rotating Cards", demo_a_path %></li>
+    <li><%= active_link_to "Next Demo", cars_path %></li>
+  </ul>
+</nav>
