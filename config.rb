@@ -40,7 +40,6 @@
 #   activate :livereload
 # end
 
-activate :livereload
 activate :directory_indexes
 
 # Methods defined in the helpers block are available in templates
@@ -50,7 +49,7 @@ activate :directory_indexes
 #   end
 # end
 
-set :partials_dir, 'templates/partials'
+#set :partials_dir, 'partials'
 
 
 set :css_dir, 'stylesheets'
@@ -71,7 +70,7 @@ configure :build do
   # activate :asset_hash
 
   # Use relative URLs
-  # activate :relative_assets
+  activate :relative_assets
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
