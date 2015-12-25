@@ -2,6 +2,7 @@ $(function() {
   var $body = $('body'), 
     $grid = $('.grid'),
     $boxes = $('.box'),
+    $arrowRight = $('.boxArrow'),
     tlSlides, tlMaster;
 
 
@@ -36,14 +37,16 @@ $(function() {
       projectClass = index;
 
     tlSlides
+      .set($arrowRight,{x:"0"})
       .fromTo($box, .5, {autoAlpha: 0, scale: 0.8}, {autoAlpha: 1, scale: 1, onStart: updateClass, onStartParams: [projectClass]})
       .fromTo($header, 1.5, {autoAlpha: 0, y: '-=20'}, {autoAlpha: 1, y: '0'}, '-=.2')
       .add('headerLoaded')
-      .staggerFromTo($project, 0.4, {autoAlpha: 0, y: '+=10'}, {autoAlpha: 1, y: '0'}, 0.05, 'headerLoaded-=1.2')
-      .to($box, 3.4, {rotation: "+=359", paddingTop: "+=15", paddingBottom: "+=15", ease: Elastic.easeInOut}, 'headerLoaded-=.7')
+      .staggerFromTo($project, 0.4, {autoAlpha: 0, y: '+=14'}, {autoAlpha: 1, y: '0'}, 0.07, 'headerLoaded-=1.2')
+      .to($box, 3.4, {rotation: "+=360", paddingTop: "+=15", paddingBottom: "+=15", ease: Elastic.easeInOut}, 'headerLoaded-=.7')
       .to($header, 3.4, {fontSize: "+=20", ease: Elastic.easeInOut}, 'headerLoaded-=.7')
       .to($projects, 3.4, {marginTop: "20", ease: Power3.easeInOut}, 'headerLoaded-=.7')
       .to($project, 3.4, {width: "12", height: "12", marginLeft: "5", marginRight: "5", ease: Elastic.easeInOut}, 'headerLoaded-=.7')
+      .fromTo($arrowRight, 1.2, {autoAlpha: 0, scale: .3, y: '+=13'}, {autoAlpha: 1, scale: 1, y: '0'}, '-=.2')
       .to($box, 1, {yPercent: "-150", ease: Power3.easeIn, onStart: pauseTimeline}, '-=.5');
 
     tlMaster.add(tlSlides);
@@ -56,5 +59,16 @@ $(function() {
   function pauseTimeline(){
     tlMaster.pause();
   }
+
+  $arrowRight.hover(function(){
+    TweenLite.to($arrowRight, .6, {y:"-7", scale: 1.2});
+  }, function(){
+    TweenLite.to($arrowRight, .6, {y:"0", scale: 1});
+  });
+
+  $arrowRight.on('click', function(){
+    tlMaster.resume();
+    TweenLite.fromTo($arrowRight, .5, {y: '-7', scale: 1.2}, {autoAlpha: 0, y: '-50'});
+  });
 
 });
