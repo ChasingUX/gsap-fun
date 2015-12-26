@@ -1,24 +1,48 @@
 $(function() {
   var $body = $('body'), 
-    $circleWrap = $('.circleWrap'),
     $circles = $('.circles'),
     $header = $('.demos_circles h1'),
+    $smallRing = $('.ring'),
     $ring1 = $('.ring1'),
     $ring2 = $('.ring2'),
     $ring3 = $('.ring3'),
     $ring4 = $('.ring4'),
     $ring5 = $('.ring5'),
+    ring1Width = getWidth($ring1),
+    ring2Width = getWidth($ring2),
+    ring3Width = getWidth($ring3),
+    ring4Width = getWidth($ring4),
+    ring5Width = getWidth($ring5),
     middle = ($(window).height() / 2 )-25,
     tlSlides;
 
+
   tlSlides = new TimelineMax({paused: false});
+  
+  function getWidth(selector){
+    var width = selector.css('width');
+    return width;
+  }
+
+  function calcCircum(itemWidth) {
+    var radius = parseInt(itemWidth) / 2;
+    var circum = Math.PI * 2 * radius;
+    return circum;
+  }
+  
+  function fillBlue(){
+    $ring1.find('circle').attr('style', "fill: #2B63FF");
+    console.log($(this));
+  }
 
   tlSlides
-    .fromTo($ring1, 4, {autoAlpha: 0, strokeDasharray: 410, strokeDashoffset: 410}, {autoAlpha: 1, strokeDasharray: 410, strokeDashoffset: 0, ease: Power2.easeOut})
-    .fromTo($ring2, 3.75, {autoAlpha: 0, strokeDasharray: 655, strokeDashoffset: 655}, {autoAlpha: 1, strokeDasharray: 655, strokeDashoffset: 0, ease: Power2.easeOut}, '-=4')
-    .fromTo($ring3, 3.9, {autoAlpha: 0, strokeDasharray: 895, strokeDashoffset: 895}, {autoAlpha: 1, strokeDasharray: 895, strokeDashoffset: 0, ease: Power2.easeInOut},'-=4.9')
-    .fromTo($ring4, 3, {autoAlpha: 0, strokeDasharray: 1140, strokeDashoffset: 1140}, {autoAlpha: 1, strokeDasharray: 1140, strokeDashoffset: 0, ease: Power2.easeOut},'-=3.7')
-    .fromTo($ring5, 3.8, {autoAlpha: 0, strokeDasharray: 1400, strokeDashoffset: 1400}, {autoAlpha: 1, strokeDasharray: 1400, strokeDashoffset: 0, ease: Power3.easeInOut},'-=4.2')
+    .add('startAni')
+    .fromTo($ring1, 3, {autoAlpha: 0, strokeDasharray: calcCircum(ring1Width), strokeDashoffset: calcCircum(ring1Width)}, {autoAlpha: 1, strokeDasharray: calcCircum(ring1Width), strokeDashoffset: 0, ease: Power2.easeInOut})
+    .fromTo($ring2, 2.6, {autoAlpha: 0, strokeDasharray: calcCircum(ring2Width), strokeDashoffset: calcCircum(ring2Width)}, {autoAlpha: 1, strokeDasharray: calcCircum(ring2Width), strokeDashoffset: 0, ease: Power2.easeInOut}, 'startAni+=.3')
+    .fromTo($ring3, 2.2, {autoAlpha: 0, strokeDasharray: calcCircum(ring3Width), strokeDashoffset: calcCircum(ring3Width)}, {autoAlpha: 1, strokeDasharray: calcCircum(ring3Width), strokeDashoffset: 0, ease: Power2.easeInOut},'startAni+=.6')
+    .fromTo($ring4, 1.8, {autoAlpha: 0, strokeDasharray: calcCircum(ring4Width), strokeDashoffset: calcCircum(ring4Width)}, {autoAlpha: 1, strokeDasharray: calcCircum(ring4Width), strokeDashoffset: 0, ease: Power2.easeInOut},'startAni+=.9')
+    .fromTo($ring5, 1.5, {autoAlpha: 0, strokeDasharray: calcCircum(ring5Width), strokeDashoffset: calcCircum(ring5Width)}, {autoAlpha: 1, strokeDasharray: calcCircum(ring5Width), strokeDashoffset: 0, ease: Power2.easeInOut},'startAni+=1.2')
+    .fromTo($smallRing, 1.3, {autoAlpha: 0, scale: 0 }, {autoAlpha: 1, scale: 1, ease: Back.easeInOut.config(3)},'-=1.3')
     .to($circles, 3, {y: middle, ease: Back.easeInOut.config(1.4)},'-=1')
     .fromTo($header, 2.3, {autoAlpha: 0,scale: 0.75, y: '10' }, {autoAlpha: 1, scale: 1, y: '0', ease: Power3.easeInOut},'-=1.9')
 

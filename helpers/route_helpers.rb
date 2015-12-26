@@ -3,7 +3,8 @@ module RouteHelpers
     home:                                               '/',
     demo_a:                                             '/demos/',
     demo_b:                                             '/demos/progress/',
-    demo_c:                                             '/demos/circles/'
+    demo_c:                                             '/demos/circles/',
+    demo_d:                                             '/demos/slideshow/'
   }
 
   URL_REGEX = /https?:/

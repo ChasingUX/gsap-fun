@@ -6,17 +6,20 @@ title: Carousel of Time
   <script src="../../javascripts/demoC.js"></script>
 <% end %>
 
-<div class="grid"></div>
-
 <div class="circleWrap">
 
   <h1>We're captured on a carousel of time</h1>
 
   <div class="circles">
+    <svg class="ring" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+      <circle fill="#2B63FF" vector-effect="non-scaling-stroke" stroke="#2B63FF" stroke-width="2" stroke-miterlimit="10" cx="50" cy="50" r="50"/> 
+    </svg>
+
     <% 5.times do |i| %>
       <svg class="ring<%= i+1 %>" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-       viewBox="0 0 92 92" enable-background="new 0 0 92 92" xml:space="preserve">
-        <circle fill="none" vector-effect="non-scaling-stroke" stroke="#2B63FF" stroke-width="2" stroke-miterlimit="10" cx="46" cy="46" r="45.5"/>
+       viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+        <circle fill="none" vector-effect="non-scaling-stroke" stroke="#2B63FF" stroke-width="2" stroke-miterlimit="10" cx="50" cy="50" r="50"/> 
       </svg>
     <% end %>
   </div>
