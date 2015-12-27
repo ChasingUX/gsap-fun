@@ -14,7 +14,13 @@ $(function() {
     ring4Width = getWidth($ring4),
     ring5Width = getWidth($ring5),
     middle = ($(window).height() / 2 )-25,
+    docHeight = $(document).height(),
+    ringRoom = $ring5.height() / 2,
+    navHeight = $('nav').height(),
+    headerHeight = docHeight - ringRoom - navHeight,
     tlSlides;
+
+  $(".circleWrap header").css('height', headerHeight)
 
 
   tlSlides = new TimelineMax({paused: false});
@@ -32,7 +38,6 @@ $(function() {
   
   function fillBlue(){
     $ring1.find('circle').attr('style', "fill: #2B63FF");
-    console.log($(this));
   }
 
   tlSlides
@@ -42,7 +47,7 @@ $(function() {
     .fromTo($ring3, 2.2, {autoAlpha: 0, strokeDasharray: calcCircum(ring3Width), strokeDashoffset: calcCircum(ring3Width)}, {autoAlpha: 1, strokeDasharray: calcCircum(ring3Width), strokeDashoffset: 0, ease: Power2.easeInOut},'startAni+=.6')
     .fromTo($ring4, 1.8, {autoAlpha: 0, strokeDasharray: calcCircum(ring4Width), strokeDashoffset: calcCircum(ring4Width)}, {autoAlpha: 1, strokeDasharray: calcCircum(ring4Width), strokeDashoffset: 0, ease: Power2.easeInOut},'startAni+=.9')
     .fromTo($ring5, 1.5, {autoAlpha: 0, strokeDasharray: calcCircum(ring5Width), strokeDashoffset: calcCircum(ring5Width)}, {autoAlpha: 1, strokeDasharray: calcCircum(ring5Width), strokeDashoffset: 0, ease: Power2.easeInOut},'startAni+=1.2')
-    .fromTo($smallRing, 1.3, {autoAlpha: 0, scale: 0 }, {autoAlpha: 1, scale: 1, ease: Back.easeInOut.config(3)},'-=1.3')
+    .fromTo($smallRing, 1.3, {autoAlpha: 0, scale: 0 }, {autoAlpha: 1, scale: 1, ease: Back.easeInOut.config(4)},'-=1.3')
     .to($circles, 3, {y: middle, ease: Back.easeInOut.config(1.4)},'-=1')
     .fromTo($header, 2.3, {autoAlpha: 0,scale: 0.75, y: '10' }, {autoAlpha: 1, scale: 1, y: '0', ease: Power3.easeInOut},'-=1.9')
 
