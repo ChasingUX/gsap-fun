@@ -476,6 +476,7 @@ $weight: 1.3; // weight calculates the seperation of circles
       position: relative;
       opacity: 0;
       visibility: hidden;
+      padding-left: 20px;
 
       &:last-child {
         cite {
@@ -495,7 +496,7 @@ $weight: 1.3; // weight calculates the seperation of circles
         font-size: 61px;
         color: #2B63FF;
         position: absolute;
-        left: -39px;
+        left: -19px;
         top: -13px;
       }
 

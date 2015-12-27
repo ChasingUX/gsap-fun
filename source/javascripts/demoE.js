@@ -54,11 +54,11 @@ var $body = $('body'),
       $body.removeClass('logoLoaded');
 
       tlBack
-        .staggerFromTo($quotesReverse, 1, {autoAlpha: 1, y: '0'}, {autoAlpha: 0, y: '+=25'}, 0.1, '-=.1')
-        .fromTo($page, 1.2, {autoAlpha: 1, y: 0}, {autoAlpha: 0, y: 140},'-=1.2')
-        .to($body, .5, {backgroundColor: "#ffffff", ease: Power0.easeNone},'-=1.1')
-        .to($logo, .8, {top: '-=160', ease: Power0.easeNone},'-=1')
-        
+        .to($logo, 1.4, {top: '-=160', ease: CubicBezier.config(0.7, -0.42, 0.55, 1)})
+        .to($body, .5, {backgroundColor: "#ffffff", ease: Power0.easeNone},'-=.9')
+        .staggerFromTo($quotesReverse, 1, {autoAlpha: 1, y: '0'}, {autoAlpha: 0, y: '+=25'}, 0.1, '-=.9')
+        .fromTo($page, 1.2, {autoAlpha: 1, y: 0}, {autoAlpha: 0, y: 140},'-=.9')
+
         .set($quotes, {y: 0})
         .set($typePath, {autoAlpha: 0})
         .set($rect1, {strokeDasharray: 217, strokeDashoffset: 217})
