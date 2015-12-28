@@ -11,7 +11,13 @@
     <%= stylesheet_link_tag "normalize", "all" %>
   </head>
 
-  <body class="<%= page_classes %>">
+
+  <% if content_for?(:classes) %>
+    <body class="<%= yield_content :classes %>">
+  <% else %> 
+    <body class="<%= page_classes %>">
+  <% end %>
+  
     <%= yield %>
     <%= partial "layouts/partials/menu" %>
     

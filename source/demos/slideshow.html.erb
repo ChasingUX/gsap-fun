@@ -2,35 +2,39 @@
 title: Slideshow
 ---
 
+<% content_for :classes do %>loading demos_slideshow<% end %>
+
 <% content_for :assets do %>
   <script src="../../javascripts/demoD.js"></script>
 <% end %>
 
 <div class="slideWrap">
-  <div id="slide3" class="slide slide3">
+  <div id="slide1" class="slide slide1 active">
     <div class="bg"></div>
     <div class="slideContent">
-      <h2>Slide 3 Title</h2>
+      <h2>—<span class="top">The Road</span>— <span>Undiverged</span></h2>
     </div>
   </div>
+
   <div id="slide2" class="slide slide2">
     <div class="bg"></div>
     <div class="slideContent">
       <h2>Slide 2 Title</h2>
     </div>
   </div>
-  <div id="slide1" class="slide slide1">
+
+  <div id="slide3" class="slide slide3">
     <div class="bg"></div>
     <div class="slideContent">
-      <h2>—<span class="top">The Road</span>— <span>Undiverged</span></h2>
+      <h2>Slide 3 Title</h2>
     </div>
   </div>
 </div>
 
 <nav class="slideNav">
   <ul>
-    <li class="active"><a href="#">Slide 1</a></li>
-    <li><a href="#">Slide 2</a></li>
-    <li><a href="#">Slide 3</a></li>
+    <li class="active"><a href="#slide1">Slide 1</a></li>
+    <li><a href="#slide2">Slide 2</a></li>
+    <li><a href="#slide3">Slide 3</a></li>
   </ul>
 </nav>
