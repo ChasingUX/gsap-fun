@@ -5,7 +5,8 @@ module RouteHelpers
     demo_b:                                             '/demos/progress/',
     demo_c:                                             '/demos/circles/',
     demo_d:                                             '/demos/slideshow/',
-    demo_e:                                             '/demos/logo/'
+    demo_e:                                             '/demos/logo/',
+    demo_f:                                             '/demos/twist/'
   }
 
   URL_REGEX = /https?:/

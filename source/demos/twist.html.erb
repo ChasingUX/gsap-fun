@@ -1,0 +1,30 @@
+---
+title: Logo Build
+---
+
+<% content_for :assets do %>
+  <script src="../../javascripts/customBezier.js"></script>
+  <script src="../../javascripts/demoF.js"></script>
+<% end %>
+  
+<div class="grid"></div>
+
+<div class="btn">
+  <a href="#" class="grow">Grow</a>
+  <a href="#" class="circle">Circle</a>
+</div>
+
+<div class="Stack">
+  <div class="Stack-holder">
+    <span class="Border-centerFront"></span>
+    <span class="Border-centerBack"></span>
+    <span class="Border-left"></span>
+    <span class="Border-right"></span>
+
+    <div class="Stack-wrap">
+      <% 4.times do |i| %>
+        <div class="Stack-sheet <%= letter_for_index(i) %>"></div>
+      <% end %>
+    </div>
+  </div>
+</div>

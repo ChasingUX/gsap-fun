@@ -4,6 +4,42 @@ $white: #ffffff;
 $blue: #2B63FF;
 $green: #00FFB8;
 
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+
+@mixin transition-delay($transition-property, $transition-time, $method, $delay) {
+    -webkit-transition: $transition-property $transition-time $method $delay;
+    -moz-transition: $transition-property $transition-time $method $delay;
+    -ms-transition: $transition-property $transition-time $method $delay;
+    transition: $transition-property $transition-time $method $delay;
+}
+
+@mixin linear-gradient($direction, $color-stops...) {
+  @if is-direction($direction) == false {
+    $color-stops: $direction, $color-stops;
+    $direction: 180deg;
+  }
+
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+$ws_0: 0;
+$ws_1: 0.25rem;
+$ws_2: 0.5rem;
+$ws_3: 1rem;
+$ws_4: 1.5rem;
+$ws_5: 2rem;
+$ws_6: 2.5rem;
+$ws_7: 3rem;
+$ws_8: 4rem;
+$ws_9: 6rem;
+
 * {
   box-sizing: border-box;
 }
@@ -551,5 +587,192 @@ $weight: 1.3; // weight calculates the seperation of circles
 .logoLoaded {
   svg {
     cursor: pointer;
+  }
+}
+
+//twist
+
+.btn {
+  position: absolute;
+  bottom: 100px;
+  text-align: center;
+  width: 100%;
+  z-index: 15;
+
+  a {
+    display: inline-block;
+    padding: 0 0 2px 0;
+    margin: 0 10px;
+    color: $blue;
+    text-decoration: none;
+    border-bottom: 2px solid $blue;
+
+    &:hover {
+      color: #4bbfef;
+      border-color: #4bbfef;
+    }
+  }
+}
+
+$stackHolder: 230px;
+$borderTrans: .3;
+
+.demos_twist {
+  background-color: #f3f3f3;
+}
+
+.Stack {
+  position: absolute;
+  float: none;
+  left: 50%;
+  margin-left: -238px;
+  top: 320px;
+  width: 476px;
+}
+
+.Stack-copy {
+  margin-top: 50px;
+
+  &.Stack-copyLeft {
+    text-align: right;
+    padding-right: $ws-3;
+  }
+
+  &.Stack-copyRight {
+    text-align: left;
+    padding-left: $ws-3;
+  }
+
+  li {
+    margin-bottom: $ws-5;
+    opacity: 0;
+    transform: translateY(0);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.is-visible {
+    li {
+      opacity: 1;
+      transform: translateY(15px);
+    }
+  } 
+}
+
+.Stack-holder {
+  height: $stackHolder;
+  position: relative;
+  
+  .Border-centerFront, .Border-centerBack, .Border-left, .Border-right {
+    border-right: 1px solid $blue;
+    position: absolute;
+    left: 50%;
+    height: calc(100% - 129px);
+    opacity: $borderTrans;
+  }
+
+  .Border-centerFront, .Border-centerBack {
+    transform: translateY(75px);
+    z-index: 12;
+    margin-left: 1px;
+  }
+
+  .Border-centerBack {
+    z-index: 0;
+    transform: translateY(-42px);
+  }
+
+  .Border-left, .Border-right {
+    transform: translateY(17px);
+    margin-left: -156px;
+  }
+
+  .Border-right {
+    margin-left: 159px;
+  }
+
+  &:before, &:after {
+    width: 220px;
+    height: 220px;
+    display: block;
+    content: '';
+    position: absolute;
+    -webkit-transform: rotateX(68deg) rotateY(0deg) rotateZ(45deg) translate(0) scale3d(1, 1, 1);
+    border: 2px solid $blue;
+    left: 50%;
+    margin: 0 0 0 -110px;
+    opacity: $borderTrans;
+  }
+
+  &:before {
+    z-index: 11;
+    top: -95px;
+  }
+
+  &:after {
+    z-index: 0;
+    bottom: 0px;
+  }
+}
+
+.Stack-wrap{
+  position: absolute;
+  width: 254px;
+  left: 50%;
+  margin-left: -127px;
+  top: 0;
+}
+
+.Stack-sheet {
+  width: 100%;
+  @include linear-gradient(45deg, #4bbfef 0%, #025bfa 100%);
+  position: absolute;
+  top: 0;
+  transform: translateY(65px);
+  left: 0;
+  height: 3px;
+  
+  &:before, &:after {
+    width: 180px;
+    height: 180px;
+    display: block;
+    content: '';
+    position: absolute;
+    z-index: 1;
+    -webkit-transform: rotateX(68deg) rotateY(0deg) rotateZ(45deg) translate(0) scale3d(1, 1, 1);
+  }
+
+  &:before {
+    background: $white;
+    top: -91px;
+    left: 37px;
+    z-index: 2;
+  }
+
+  &:after {
+    @include linear-gradient(45deg, #4bbfef 0%, #025bfa 100%);
+    top: -87px;
+    left: 37px;
+  }
+
+  &.a {
+    z-index: 10;
+  }
+
+  &.b {
+    transform: translateY(72px);
+    z-index: 9;
+  }
+
+  &.c {
+    transform: translateY(79px);
+    z-index: 8;
+  }
+
+  &.d {
+    transform: translateY(86px);
+    z-index: 7;
   }
 }
