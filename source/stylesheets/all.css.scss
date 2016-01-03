@@ -730,9 +730,9 @@ $borderTrans: .3;
   }
 
   .Border-centerFront, .Border-centerBack {
-    transform: translateY(75px);
+    transform: translateY(73px);
     z-index: 12;
-    margin-left: 1px;
+    margin-left: 0px;
   }
 
   .Border-centerBack {
@@ -742,11 +742,11 @@ $borderTrans: .3;
 
   .Border-left, .Border-right {
     transform: translateY(17px);
-    margin-left: -156px;
+    margin-left: -146px;
   }
 
   .Border-right {
-    margin-left: 159px;
+    margin-left: 149px;
   }
 
   &:before, &:after {
@@ -762,6 +762,7 @@ $borderTrans: .3;
     opacity: $borderTrans;
     transition: border-radius .3s ease;
     visibility: visible;
+    border-radius: 24px;
   }
 
   &:before {
@@ -785,7 +786,7 @@ $borderTrans: .3;
 
 .Stack-sheet {
   width: 100%;
-  @include linear-gradient(45deg, #4bbfef 0%, #025bfa 100%);
+  //@include linear-gradient(45deg, #4bbfef 0%, #025bfa 100%);
   position: absolute;
   top: 0;
   transform: translateY(65px);
@@ -806,6 +807,7 @@ $borderTrans: .3;
     visibility: visible;
     -webkit-transform: rotateX(68deg) rotateY(0deg) rotateZ(45deg) translate(0) scale3d(1, 1, 1);
     transition: border-radius .3s ease;
+    border-radius: 24px;
   }
 
   &:before {
