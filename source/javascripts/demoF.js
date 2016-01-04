@@ -70,6 +70,12 @@ var $body = $('body'),
   $('.circle').on('click', function(){
     $body.removeClass('noTrans');
     $stack.toggleClass('circleWrap');
+
+    if($stack.hasClass('circleWrap')) {
+      $(this).text('Square');
+    } else {
+      $(this).text('Circle');
+    }
   });
 
   tlHover = new TimelineMax({paused:true});
