@@ -16,7 +16,7 @@ var $body = $('body'),
     $diamondTop = CSSRulePlugin.getRule(".Stack-holder:before"),
     $diamondBot = CSSRulePlugin.getRule(".Stack-holder:after"),
     $stackHeight = 375,
-    $halfHeight = $stackHeight / -4,
+    $halfHeight = $stackHeight / -7,
     tlOpen, tlHover, tlInit;
 
   tlInit = new TimelineMax();
